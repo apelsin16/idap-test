@@ -22,6 +22,7 @@ html {
 
 body {
   margin: 0;
+  font-family: sans-serif;
 }
 
 /**
@@ -67,6 +68,16 @@ pre {
 
 a {
   background-color: transparent;
+  text-decoration: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;  
 }
 
 /**

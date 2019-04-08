@@ -140,9 +140,6 @@
   }
 }
 
-.account-menu {
-}
-
 .icon {
   display: inline-block;
   width: 2.75rem;
@@ -169,6 +166,11 @@
     background-color: #f1f1f1;
     padding: 0.5rem 0.75rem 1.5rem 2rem;
     border-bottom: 1px solid #d3d7da;
+
+    .left-side,
+    .right-side {
+      display: flex;
+    }
   }
 }
 
@@ -215,10 +217,11 @@
   }
 
   &__icon {
-    display: inline-block;
+    display: block;
     width: 0.85rem;
     height: 0.85rem;
     fill: #fff;
+    margin: 0 auto;
 
     &--project {
       fill: #a6a6a6;     
@@ -264,9 +267,11 @@
 }
 
 .before {
+  display: flex;
+  align-items: center;
+
   &::before {
-    content: "";
-    display: inline-block;
+    content: "";    
     width: 1.25rem;
     height: 1.25rem;
     padding-right: 0.6rem;
@@ -456,7 +461,8 @@
 
       &::after {
         content: '';
-        display: block;
+        display: inline-block;
+        margin-left: 0.5rem;
         width: 1rem;
         height: 1rem;
         background-image: url(../images/icon-check-mark.svg);
@@ -497,10 +503,6 @@
     width: 2.5rem;
     height: 2.5rem;
     margin-right: 0.25rem;
-
-    &:last-child {
-      // margin-right: 0;
-    } 
   }
 
   &__indicator {

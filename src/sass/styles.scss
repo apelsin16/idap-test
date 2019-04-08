@@ -12,40 +12,43 @@
 }
 
 .aside {
+  display: flex;
+  flex-direction: column;
   flex-basis: 8%;
   padding: 1rem;
   background-color: #2a3137;
 }
 
 .avatar {
-  position: relative;
+  
   text-align: center;
+  position: relative;
 
   &__link {
     display: block;
+    margin: 0 auto;
     height: 5.5rem;
     width: 5.5rem;
     border-radius: 50%;
     background-image: url(../images/avatar.png);
-  }
+    
+    &-badge {
+      position: absolute;
+      top: 0;
+      right: 0;
+      color: #fff;
+      width: 2rem;
+      height: 2rem;
+      text-align: center;
+      border-radius: 50%;
+      line-height: 2rem;
+      background-color: #adadad;
 
-  &-badge {
-    font-family: sans-serif;
-    position: absolute;
-    top: 0;
-    right: 0;
-    color: #fff;
-    width: 2rem;
-    height: 2rem;
-    text-align: center;
-    border-radius: 50%;
-    line-height: 2rem;
-    background-color: #adadad;
-
-    &--active {
-      background-color: #ff503f;
+      &--active {
+        background-color: #ff503f;
+      }
     }
-  }
+  }  
 }
 
 .menu-badge {
@@ -174,14 +177,41 @@
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;
+
+  &--open {
+    transform: rotate(180deg);
+  }
+
+  &--project {
+    background-color: inherit;
+    border: 1px solid #d0d0d0;
+    fill: #a6a6a6;
+    margin-left: 0.5rem;
+
+    &:hover {
+      background-color: #ff503f;
+      border: 1px solid #ff503f;
+
+      & .round-button__icon--project {
+        fill: #fff;
+      }
+    }
+  }
   
   &--red {
-    background-color: #ff503f;
     margin-right: 0.625rem;
+    background-color: #ff503f;
   }
 
   &--green {
+    margin-right: 0.625rem;
     background-color: #aacc4e;
+  }
+
+  &--add {
+    color: #fff;
+    font-weight: bold;
+    margin-left: 0.625rem;
   }
 
   &__icon {
@@ -189,6 +219,10 @@
     width: 0.85rem;
     height: 0.85rem;
     fill: #fff;
+
+    &--project {
+      fill: #a6a6a6;     
+    }
 
     &--rotateY {
       transform: rotateY(180deg) rotate(45deg);
@@ -198,20 +232,38 @@
       transform: rotate(90deg);
     }
   }
+
+  &__users {
+    border: 1px solid #c8c8c8;
+    line-height: 2.5rem;
+    text-align: center;
+    color: #a6a6a6;
+  }
 }
+
 
 .ellipse-button {
   border: 1px solid #c8c8c8;
   color: #4b4b4b;
-  padding: 0.8rem 1.5rem;
+  padding: 0.5rem 1.5rem;
   border-radius: 25px;
   background-color: inherit;
   font-weight: 700;
+
+  &--submenu {
+    margin-left: 1rem;
+  }
+
+  &--light {
+    font-weight: 400;
+  }
 }
 
 .users-online {
   text-transform: uppercase;
+}
 
+.before {
   &::before {
     content: "";
     display: inline-block;
@@ -224,6 +276,14 @@
     background-position: center center;
   }
 
+  &--arrow::before {
+    padding-left: 1rem;
+    padding-right: 0.5rem;
+    background-image: url(../images/icon-refresh-button.svg);
+  }
+}
+
+.after-arrow {
   &::after {
     content: "";
     display: inline-block;
@@ -235,15 +295,23 @@
     background-repeat: no-repeat;
     background-position: center center;
   }
+
+  &--rotate::after {    
+    transform: rotate(-90deg);
+  }
 }
 
 .tabs {
-  display: flex;
- 
+  display: flex; 
 
   &__item {
     position: relative;
-    padding: 1.2rem 4.375rem 1.2rem 2rem;
+    padding: 1.2rem;
+    vertical-align: middle;
+
+    &--active {
+      background-color: #fff;
+    }
 
     &:first-child {
       border-right: 1px solid #d3d7da;
@@ -259,13 +327,19 @@
       flex-grow: 1;
       text-align: right;
       border-bottom: 1px solid #d3d7da;
-    }
-  }
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }     
+  } 
 
   &__link {
-    padding: 0 4.375rem 1.2rem 0;
+    line-height: 2.5rem;
+    padding: 0 2rem 0 1rem;
     color: #4b4b4b;
-    vertical-align: middle;    
+    font-size: 1.5rem;   
+    display: flex;
+    justify-content: center;   
 
     &::before {
       content: '';
@@ -289,7 +363,161 @@
     }
   }
 
+  &__badge {
+    position: absolute;
+    font-size: 1rem;
+    top: 0.5rem;
+    right: 1rem;
+    color: #fff;
+    width: 2rem;
+    height: 2rem;
+    text-align: center;
+    border-radius: 50%;
+    line-height: 2rem;
+    background-color: #adadad;
+
+    &--active {
+      background-color: #ff503f;
+    }
+  }
 }
 
-// fill: #4e5053;
-// fill: #ff503f;
+.form {
+  display: flex;
+  line-height: 1.5rem;
+
+  &__input {
+    border: none;
+    font-size: 1.1rem;
+    background-color: inherit;
+    width: 16.5rem;
+    color: #c1c1c1;
+
+    &--projects {
+      margin-left: 1.5rem;
+    }
+  }
+}
+
+.content {
+  background-color: #fff;
+}
+
+.projects {
+  padding: 2rem;
+
+  &__list {
+    border-radius: 5px;
+    box-shadow: 0px 0px 3px 0px rgba(200,200,200,0.75);
+  }
+
+  &__item {
+    border: 1px solid #dcdcdc;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border-bottom: none;
+
+    &--submenu {
+      padding: 0;
+      border-left: none;
+      border-right: none;
+      background-color: #f5f5f5;
+    }
+
+    &:last-child {
+      border-bottom: 1px solid #dcdcdc;
+      font-size: 0.875rem;
+    }
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #4b4b4b;
+    font-size: 1.3rem;
+    margin: 1.5rem;
+  }
+
+  &__functional-buttons {
+    display: flex;
+    align-items: center;
+    margin: 1.5rem;
+  }
+
+  &__text {
+    margin: 1.5rem;
+    font-size: 1.25rem;
+    color: #4b4b4b;
+    
+    &--ready {
+      text-decoration: line-through;
+
+      &::after {
+        content: '';
+        display: block;
+        width: 1rem;
+        height: 1rem;
+        background-image: url(../images/icon-check-mark.svg);
+      }
+    }
+  }
+}
+
+.submenu {
+  flex-basis: 100%;
+}
+
+.project-badge {
+  padding: 0.5rem;
+  background-color: #ff503f;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+
+  &--grey {
+    background-color: #f9f9f9;
+    border: 1px solid #dcdcdc; 
+    color: #dcdcdc;
+  }
+
+  &--ready {
+    font-size: 0.8rem;
+    
+  }
+}
+
+.user {
+  border-radius: 50%;
+  position: relative;
+
+  &__image {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-right: 0.25rem;
+
+    &:last-child {
+      // margin-right: 0;
+    } 
+  }
+
+  &__indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0.5rem;
+    height: 0.5rem;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    
+    &--on {
+      background-color: #aacc4e;
+    }
+
+    &--off {
+      background-color: #c5c5c5;
+    }
+  }
+}
